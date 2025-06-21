@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardify.js Örnek Kullanım</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 2em; }
+        code { background-color: #eee; padding: 2px 5px; border-radius: 4px; }
+        .info { background-color: #eaf2fd; border-left: 5px solid #5d9cec; padding: 1em; }
+    </style>
+</head>
+<body>
+    <h1>Guardify.js Kütüphanesi Test Sayfası</h1>
+    <p>Bu sayfada içerik koruması aktiftir. Aşağıdakileri yapmayı deneyin:</p>
+    <ul>
+        <li>Sayfaya sağ tıklayın.</li>
+        <li>Bu metni fare ile seçmeye çalışın.</li>
+        <li><code>F12</code> veya <code>Ctrl+Shift+I</code> tuşlarına basarak geliştirici araçlarını açın.</li>
+        <li><code>Ctrl+U</code> tuşlarına basarak sayfa kaynağını görüntüleyin.</li>
+    </ul>
+
+    <p class="info">
+        <b>Not:</b> Geliştirici konsolunu tarayıcı menüsünden açarsanız, her saniye konsolun temizlendiğini ve bir uyarı mesajı çıktığını göreceksiniz.
+    </p>
+
+    <p>Bu kütüphane, basit caydırma yöntemleri sunar ancak kararlı bir kullanıcıyı durduramaz. Kullanıcı deneyimini olumsuz etkileyebileceği için dikkatli kullanılmalıdır.</p>
+
+    <!-- Kütüphaneyi sayfaya dahil et -->
+    <!-- Gerçek projede dist/guardify.min.js kullanılmalıdır -->
+    <script src="../src/Guardify.js"></script>
+
+    <!-- Kütüphaneyi başlat -->
+    <script>
+        // Seçenek 1: Varsayılan ayarlarla başlatma
+        const guard = new Guardify();
+
+        // Seçenek 2: Özel ayarlarla başlatma (aşağıdakini aktif etmek için üsttekini yorum satırı yapın)
+        /*
+        const guard = new Guardify({
+            disableContextMenu: true,  // Sağ tık menüsünü engelle
+            disableSelectStart: false, // Metin seçimine İZİN VER
+            disableCopy: true,         // Kopyalamayı engelle (seçime izin verilse bile)
+            disableKeys: ["F12"],      // Sadece F12'yi engelle
+            detectDevTools: true,      // Geliştirici araçlarını algıla
+            devToolsMessage: "Hacker'lık yapma!" // Özel uyarı mesajı
+        });
+        */
+
+        // Korumayı 5 saniye sonra kaldırmak isterseniz:
+        // setTimeout(() => {
+        //     guard.destroy();
+        // }, 5000);
+    </script>
+</body>
+</html>
